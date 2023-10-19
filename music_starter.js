@@ -1,23 +1,11 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
-let FirstRun = true 
-let Taxi;
 angleMode(DEGREES)
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
-    if ( FirstRun){
-
-        Taxi = loadImage ('taxi body.png');
-         FirstRun = false;
-        }
           
-           
-image (Taxi,0,0)
-        
-
-
-    let BGcol = color (240, 227, 189)
+let BGcol = color (240, 227, 189)
 let White = color (255)
 let Red = color(236,47,59)
 let RedD = color (181, 53, 61)
@@ -30,25 +18,18 @@ let Pink = color (252, 196, 194)
 
     background(BGcol)
 
-//console.log(counter);
-//1850 first shoobababba
-//3300
-
-let colTrue = true
 let drumMap = map( drum, 0, 100, 0,500)
 let VocMap = map( vocal, 0, 100, 0,200)
+let BassMap = map(bass, 0,100, 0,200)
  
 let LerpMapV = map( vocal, 70, 100, 0,1)
 let LerpMapD = map( drum, 20, 80, 0,1)
 let LerpMapVV = map( vocal, 0, 100, 0,1)
 
-//let RedBounce = map (other, 0,100, 0,20)
-
 let middlecolour = lerpColor( Blue, White, LerpMapV);
 let RadColY = lerpColor ( Yellow, BGcol, LerpMapD)
 let RadColB = lerpColor ( White, Blue, LerpMapD)
 let RedVoc = lerpColor ( RedD, Red, LerpMapVV)
-
 
 let AcCircleSize = map(vocal,70,100,0,100)
 let SmallCircleX = map(other,40 ,100, 200, 0)
@@ -87,11 +68,6 @@ vertex(10, 20);
 endShape(CLOSE);
 
 }
-
-// if (colTrue=== false){
-//     RedVoc = color(255)
-// }
-
 
 //radial 
 stroke(Yellow)
@@ -237,20 +213,6 @@ if(vocal>70&&counter>7100 &&counter<7270){
    noFill()
        ellipse ( 300, 300, drum+Radiate );
    }
-   
-   // blue things 
-//    noStroke()
-//    fill(middlecolour)
-//    ellipse(20,20,50+AcCircleSize)
-//    ellipse(100,300,70+AcCircleSize)
-//    ellipse(250,20,30+AcCircleSize)
-//    ellipse(300,400,40+AcCircleSize)
-//    ellipse(40,550,100+AcCircleSize)
-//    ellipse(500,100,50+AcCircleSize)
-//    ellipse(653,50,100+AcCircleSize)
-//    ellipse(30,572,10+AcCircleSize)
-//    ellipse(500,572,10+AcCircleSize)
-//    ellipse(500,372,50+AcCircleSize)
    RedVoc = Pink
 BrightYellow = Yellow
    
@@ -292,13 +254,6 @@ BrightYellow = Yellow
 
 
 
-
-
-
-
-
-
-
 //red circle 
 if(counter>= 670){
 fill(RedVoc)
@@ -309,7 +264,7 @@ fill(Orange)
 noStroke()
 if(counter>= 340){
 
-    //red circle 
+//red circle 
     ellipse(300,100+SmallCircleX,50)
 
 
@@ -336,23 +291,11 @@ if(counter>= 580){
     ellipse(150+SmallCircleX,150+SmallCircleX,50)
 }
 
-
-
-
-
-// accentRed(vocal,RedAcc,Red,0,0,0)
-// accentRed(vocal,RedAcc,Red,600,0,90)
-// accentRed(vocal,RedAcc,Red,600,0,90)
-// accentRed(vocal,RedAcc,Red,600,0,90)
-
-let BassMap = map(bass, 0,100, 0,200)
-
 function circlecircle (BrightYellow, translateX, translateY,){
 
-
+    
     translate (translateX, translateY)
 for (let i = 1 ; i < 40; i = i +1) {
-    let Spacing = i*1
     fill(BrightYellow)
     rotate(10)
     ellipse(180,30+BassMap,20)
